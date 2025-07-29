@@ -3,9 +3,13 @@ let editingRecordId = "";
 
 ZOHO.embeddedApp.on("PageLoad", function(data) {
   contactId = data.EntityId;
-  ZOHO.CRM.API.getRelatedRecords({Entity:"Contacts",RecordID:contactId,RelatedList:"Paiement"})
+  ZOHO.CRM.API.getAllRecords({Entity:"Paiement_1", sort_order:"desc", per_page:200})
     .then(function(response){
       const rows = response.data || [];
+      const filtered = rows.filter(r => r.field2 === contactId);
+      const tbody = document.querySelector("#paiementTable tbody");
+      tbody.innerHTML = "";
+      filtered.forEach(row => {
       const tbody = document.querySelector("#paiementTable tbody");
       tbody.innerHTML = "";
       rows.forEach(row => {
