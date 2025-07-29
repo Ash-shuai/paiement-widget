@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Paiement 编辑器</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Paiement 记录</h2>
+  <table id="paiementTable">
+    <thead>
+      <tr>
+        <th>名称</th>
+        <th>任务</th>
+        <th>金额 (€)</th>
+        <th>支付方式</th>
+        <th>到期日</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- 动态填充 -->
+    </tbody>
+  </table>
+
+  <div id="editForm" style="display:none;">
+    <h3>编辑付款记录</h3>
+    <input type="text" id="editName" placeholder="名称" />
+    <input type="text" id="editTask" placeholder="任务" />
+    <input type="number" id="editAmount" placeholder="金额" />
+    <input type="text" id="editMode" placeholder="支付方式" />
+    <input type="date" id="editDue" />
+    <button onclick="savePaiement()">保存</button>
+    <button onclick="closeForm()">取消</button>
+  </div>
+
+  <script src="https://js.zohostatic.com/support/v2.0/ZohoEmbededAppSDK.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
